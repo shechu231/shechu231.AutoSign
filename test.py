@@ -2,7 +2,12 @@ from selenium import webdriver
 from time import sleep
 from selenium.webdriver.chrome.options import Options
 import sys
-browser = webdriver.Chrome("./chromedriver.exe")
+# 无头浏览器
+chrome_options = Options()
+# 后面的两个是固定写法 必须这么写 无头浏览器
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-gpu')
+bro = webdriver.Chrome(executable_path="./chromedriver",options=chrome_options)
 browser.get("https://www.tmooc.cn/")
 sleep(10)
 browser.find_element_by_id("login_xxw").click()
