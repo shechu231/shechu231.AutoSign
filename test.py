@@ -35,4 +35,5 @@ try:
 except:
     print("报错了")
     browser.quit()
+    sleep(3)
     x=0/0
