@@ -8,9 +8,10 @@ chrome_options = Options()
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-gpu')
 browser = webdriver.Chrome(executable_path="./chromedriver",options=chrome_options)
+# browser = webdriver.Chrome(executable_path="./chromedriver")
 browser.get("https://www.tmooc.cn/")
 try:
-    sleep(10)
+    sleep(5)
     browser.find_element_by_id("login_xxw").click()
 
     account=sys.argv[1].split("pwd:")#分开用户账号和密码
@@ -20,12 +21,12 @@ try:
     #js_submit_login
     browser.find_element_by_id("js_submit_login").click()
     sleep(5)
-    browser.close()
-    sleep(2)
+    browser.get("https://tts.tmooc.cn/studentCenter/toMyttsPage")
+    # sleep(2)
     # 获取当前所有窗口句柄（窗口A、B）
-    handles = browser.window_handles
-    for newhandle in handles:
-        browser.switch_to_window(newhandle)
+    # handles = browser.window_handles
+    # for newhandle in handles:
+    #     browser.switch_to_window(newhandle)
     sleep(8)
     browser.execute_script('document.querySelector("#studyMsgUl > li.qiandao200310 > div > p.btn.bbb1").click()')
     sleep(2)
