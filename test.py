@@ -27,7 +27,7 @@ try:
     # handles = browser.window_handles
     # for newhandle in handles:
     #     browser.switch_to_window(newhandle)
-    sleep(8)
+    sleep(15)
     browser.execute_script('document.querySelector("#studyMsgUl > li.qiandao200310 > div > p.btn.bbb1").click()')
     sleep(2)
     print("签到成功")
